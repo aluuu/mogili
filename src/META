@@ -1,0 +1,12 @@
+# OASIS_START
+# DO NOT EDIT (digest: 889e4dce65d367c996e3698d967e76c1)
+version = "0.0.2"
+description = "Implementation of several spatial indexes"
+requires = "threads core menhirLib"
+archive(byte) = "mogili.cma"
+archive(byte, plugin) = "mogili.cma"
+archive(native) = "mogili.cmxa"
+archive(native, plugin) = "mogili.cmxs"
+exists_if = "mogili.cma"
+# OASIS_STOP
+

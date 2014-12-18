@@ -1,0 +1,34 @@
+OASISFormat: 0.4
+Name:        mogili
+Version:     0.0.2
+Synopsis:    Implementation of several spatial indexes
+Authors:     Alexander Dinu
+License:     BSD-3-clause
+Plugins:     META (0.4), DevFiles (0.4)
+AlphaFeatures:     ocamlbuild_more_args
+BuildTools: ocamlbuild, menhir
+XOCamlbuildExtraArgs: -use-menhir
+
+Library mogili
+  Path: src
+  Modules: Types, Parser
+  BuildDepends: threads, core, menhirLib
+
+Executable mogili
+  Path: src
+  MainIs: mogili.ml
+  BuildDepends: threads, core, menhirLib, mogili
+
+Executable test
+  Path: test
+  MainIs: test.ml
+  Build$: flag(tests)
+  CompiledObject: best
+  Install: false
+  BuildDepends: mogili, oUnit
+
+Test test
+  WorkingDirectory: test
+  Run$: flag(tests)
+  TestTools: test
+  Command: $test

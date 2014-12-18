@@ -1,0 +1,39 @@
+# OASIS_START
+# DO NOT EDIT (digest: ffa4916f2bd5519fc0bdf6f238507d67)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+true: annot, bin_annot
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library mogili
+"src/mogili.cmxs": use_mogili
+# Executable mogili
+"src/mogili.byte": pkg_core
+"src/mogili.byte": pkg_menhirLib
+"src/mogili.byte": pkg_threads
+"src/mogili.byte": use_mogili
+<src/*.ml{,i,y}>: pkg_core
+<src/*.ml{,i,y}>: pkg_menhirLib
+<src/*.ml{,i,y}>: pkg_threads
+<src/*.ml{,i,y}>: use_mogili
+# Executable test
+<test/test.{native,byte}>: pkg_core
+<test/test.{native,byte}>: pkg_menhirLib
+<test/test.{native,byte}>: pkg_oUnit
+<test/test.{native,byte}>: pkg_threads
+<test/test.{native,byte}>: use_mogili
+<test/*.ml{,i,y}>: pkg_core
+<test/*.ml{,i,y}>: pkg_menhirLib
+<test/*.ml{,i,y}>: pkg_oUnit
+<test/*.ml{,i,y}>: pkg_threads
+<test/*.ml{,i,y}>: use_mogili
+# OASIS_STOP
