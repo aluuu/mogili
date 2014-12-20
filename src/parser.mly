@@ -9,8 +9,8 @@
 
 prog:
   | EOF {None}
-  | v = value {Some v}
+  | v = template {Some v}
 
-value:
-  | OPEN_VAR_BRACE var = VARIABLE CLOSE_VAR_BRACE { `Variable var }
+template:
+  | var = VARIABLE { `Variable var }
   | s = TEXT { `Text s }
